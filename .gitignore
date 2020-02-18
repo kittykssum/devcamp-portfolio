@@ -29,3 +29,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore secret file
+/config/secrets.txt
