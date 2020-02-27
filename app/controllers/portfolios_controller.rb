@@ -55,7 +55,7 @@ class PortfoliosController < ApplicationController
 		# find is to query DB, value returned and stored in var @portfolio_item
   		# show method in portfolio controller match with show.html.erb
   		# var @portfolio_item is passed through to show.html.erb
-  		
+
   		@portfolio_item = Portfolio.find(params[:id])
   	end
 
