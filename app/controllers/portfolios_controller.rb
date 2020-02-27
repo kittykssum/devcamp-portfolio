@@ -46,6 +46,16 @@ class PortfoliosController < ApplicationController
   	end
 
   	def show
+  		# URL request passed to routes.rb
+  		# 	get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
+  		# routes.db create and pass params: 
+  		# 	<ActionController::Parameters {"controller"=>"portfolios", "action"=>"show", "id"=>"1"} permitted: false>
+  		# 	portfolio_path: portfolios/1
+  		
+		# find is to query DB, value returned and stored in var @portfolio_item
+  		# show method in portfolio controller match with show.html.erb
+  		# var @portfolio_item is passed through to show.html.erb
+  		
   		@portfolio_item = Portfolio.find(params[:id])
   	end
 
