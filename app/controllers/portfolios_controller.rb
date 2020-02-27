@@ -14,7 +14,7 @@ class PortfoliosController < ApplicationController
 	end
 
 	def create
-	    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+	    @portfolio_item = Portfolio.new(portfolio_params)
 
 	    respond_to do |format|
 	      if @portfolio_item.save
@@ -35,7 +35,7 @@ class PortfoliosController < ApplicationController
   		@portfolio_item = Portfolio.find(params[:id])
 	    
 	    respond_to do |format|
-	      if @portfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
+	      if @portfolio_item.update(portfolio_params)
 	        format.html { redirect_to portfolios_path, notice: 'portfolio_item was successfully updated.' }
 	        format.json { render :show, status: :ok, location: @portfolio_item }
 	      else
@@ -46,6 +46,16 @@ class PortfoliosController < ApplicationController
   	end
 
   	def show
+  		# URL request passed to routes.rb
+  		# 	get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
+  		# routes.db create and pass params: 
+  		# 	<ActionController::Parameters {"controller"=>"portfolios", "action"=>"show", "id"=>"1"} permitted: false>
+  		# 	portfolio_path: portfolios/1
+  		
+		# find is to query DB, value returned and stored in var @portfolio_item
+  		# show method in portfolio controller match with show.html.erb
+  		# var @portfolio_item is passed through to show.html.erb
+
   		@portfolio_item = Portfolio.find(params[:id])
   	end
 
@@ -58,4 +68,13 @@ class PortfoliosController < ApplicationController
 	    end
   	end
 
+  	private
+
+  	def portfolio_params
+  		params.require(:portfolio).permit(:title, 
+  										  :subtitle, 
+  										  :body, 
+  										  technologies_attributes: [:name]
+  										  )
+  	end
 end

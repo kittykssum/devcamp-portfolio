@@ -12,3 +12,21 @@
 <p><%= t.name %></p>
 <% end %>
 
+<hr>
+
+<p>params.inspect</p>
+<%= params.inspect %>
+
+<p>session[:source]</p>
+<%= session[:source] %>
+
+
+<p>@portfolio_item.inspect</p>
+<%= @portfolio_item.inspect %>
+
+<p>portfolio_path</p>
+<%= portfolio_path %>
+
+<p>Portfolio.find(params[:id]).body</p>
+<%= Portfolio.find(params[:id]).body %>
+
