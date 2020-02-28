@@ -5,22 +5,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="keywords" content="<%= @seo_keywords %>">
 
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'portfolios', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
     <%= render "shared/nav", location: 'top' %>
     <%= login_helper %>
-    <%= sample_helper %>
+    
 <!-- yield includes the content of view -->
     <%= yield %>
 
-    <%= source_helper("application") %>
+    <%= source_helper("portfolios") %>
   </body>
 </html>

@@ -1,11 +1,5 @@
-<h1>Edit a Portfolio item</h1>
-
-<%= form_with(model: @portfolio_item, local: true) do |form| %>
-<%#= form_for(@portfolio_item) do |form| %>
-
-<%= render 'form', portfolio_item: @portfolio_item %>
-
-<!--
+<%= form_for(@portfolio_item) do |form| %>
+  <div>this is from _form, partial mostly static html shared</div>
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -21,8 +15,16 @@
     <%= form.text_area :body %>
   </div>
 
+  <ul>
+    <%= form.fields_for :technologies do |technology_form| %>
+    <li>
+      <%= technology_form.label :name %>
+      <%= technology_form.text_field :name %>
+    </li>
+    <% end %>
+  </ul>
+
   <div class="actions">
     <%= form.submit %>
-  </div> -->
+  </div>
 <% end %>
-
