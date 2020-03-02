@@ -7,10 +7,13 @@ module CurrentUserConcern
 	end
 
 	def guest_user
-		OpenStruct.new(name: "Guest User", 
-					   first_name: "Guest", 
-					   last_name: "User", 
-					   email: "guest@devcamp.com"
-					   )
+		# GuestUser is a user-defined model with attr_accessor to have the required fields
+		guest = GuestUser.new
+		guest.name = "Guest User"
+		guest.first_name = "Guest"
+		guest.last_name = "User"
+		guest.email = "guest@devcamp.com"
+		# the last statement of execution is return value
+		guest
 	end
 end
