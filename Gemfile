@@ -45,8 +45,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'
-gem 'friendly_id', '~> 5.2.4'
-gem 'devise', '~> 4.7', '>= 4.7.1'
-gem 'bootstrap', '~> 4.4.1'
+gem 'friendly_id', '~> 5.2.4' # add slug as title for url instead of id
+gem 'devise', '~> 4.7', '>= 4.7.1' # authenticaton
+gem 'bootstrap', '~> 4.4.1' # stylesheet
 gem 'mkm_view_tool', git: 'https://github.com/kittykssum/mkm_view_tool'
-gem 'petergate', '~> 2.0', '>= 2.0.1'
+gem 'petergate', '~> 2.0', '>= 2.0.1' # authorization
